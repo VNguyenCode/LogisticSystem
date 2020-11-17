@@ -6,8 +6,10 @@ const router = express.Router();
 router.post('/init_catalog', initCatalogController.initCatalog);
 
 router.post('/process_order',
+  processOrderController.checkOrder,
   processOrderController.checkStock,
-  processOrderController.processOrder);
+  processOrderController.processOrder
+  );
 
 router.post('/restock_order', processRestockController.processRestock);
 
