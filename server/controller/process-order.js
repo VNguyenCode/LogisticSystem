@@ -67,9 +67,9 @@ export async function checkStock(req, res, next) {
 
 }
 
-async function shipApi(shipment) {
+async function shipApi(shipment, order_id) {
     return new Promise((resolve) => {
-        // console.log('line72',shipment)
+        
         resolve()
     })
 }
@@ -84,8 +84,7 @@ export async function processOrder(req, res, next) {
     console.log('stockObj', stockObj)
     console.log('orderData', res.locals.order)
 
-    let packageWeight = 0;
-    let currentShipmentId = 1;
+    let packageWeight = 0;    
     let shipment = {};
 
     for (let i = 0; i < res.locals.order.length; i++) {
@@ -101,9 +100,8 @@ export async function processOrder(req, res, next) {
                 while (fulfilled < res.locals.order[i].outstanding_qty && stockProduct.qty > 0) {
 
                     if (Number(stockProduct.mass_g) + packageWeight > 1800) {                
-                        await shipApi(shipment)
+                        await shipApi(shipment,order_id)
                         shipment = {};
-                        currentShipmentId = currentShipmentId + 1
                         packageWeight = 0
                     } else {
                         stockProduct.qty = stockProduct.qty - 1
@@ -120,7 +118,7 @@ export async function processOrder(req, res, next) {
             }
         }
     }
-    await shipApi(shipment)
+    await shipApi(shipment, order_id)
 }
 
 
