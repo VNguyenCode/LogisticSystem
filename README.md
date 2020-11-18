@@ -26,7 +26,7 @@ Edge cases to consider
 ## Completed
 **Init_catalog** - will initially populate **(product-info)** to the `catalog table` with the initial quantity of 0 for each product type
 
-**Process_order** - will primarily the follow key things
+**Process_order** - will primarily do the following key things
   1.  Checks to see if the order received is a new or existing pending order 
     * If new order, saves to orders table before querying
     * If existing order, queries table 
