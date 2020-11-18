@@ -1,8 +1,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Vincent Nguyen - Zipline Logistic Take Home 
-I had a great time working on this assignment, this was a fun exercise, and hope to get the chance to learn more!
 
-### Requirements
+## Requirements
 
 Listed below are the key requirements for the inventory management and order processing system: 
 
@@ -16,7 +15,7 @@ Edge cases to consider
 * When a restock happens, ship out pending items that weren't fulfilled immediately 
 
 
-### Diagrams
+## Diagrams
 
 #### Sequence Diagram
 <img src="assets/Sequence Diagram.png">
@@ -24,7 +23,7 @@ Edge cases to consider
 #### DB Diagram
 <img src="assets/DBDesign.png">
 
-### Completed
+## Completed
 **Init_catalog** - will initially populate **(product-info)** to the `catalog table` with the initial quantity of 0 for each product type
 
 **Process_order** - will primarily the follow key things
@@ -41,9 +40,9 @@ Edge cases to consider
 
   4. We invoke ShipAPI as many times as we need - continously updating the `outstanding qty` field of our orders table 
 
-  **Connected to DB** Both of the routes mentioned above have a fully functional PostgresSQL DB hosted on ElephantSQL 
+  **Connected to DB** - Both of the routes mentioned above have a fully functional PostgresSQL DB hosted on ElephantSQL 
 
-### Not Completed
+## Not Completed
 **Init_catalog** - I did not have time to finish coding this out, but have included my pseudo code as to how I might have approached it with more time 
 
 **Typescript** - Added types where I could but not fully exhaustive 
@@ -58,7 +57,7 @@ Edge cases to consider
 
 ### Installation 
 
-1. Hosted my DB on ElephantSQL, you can connect in your terminal using 
+1. Hosted my DB on ElephantSQL, you can connect in your terminal using the command 
 
 ```JS
 psql postgres:ekwmfpwq:cnGh7BO3pHq6XaPX_Zh1b5yyUlglaNV3@raja.db.elephantsql.com:5432/ekwmfpwq;
