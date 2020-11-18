@@ -24,8 +24,7 @@ export function checkOrder(req, res, next) {
                 }
                 //If incoming order doesn't exist then save it into the DB, but also return it and save to res.locals and pass it to the next middleware
                 const query = format('INSERT INTO orders (id,product_id,requested_quantity, fulfilled_quantity) VALUES %L RETURNING id,product_id,(requested_quantity-fulfilled_quantity) AS outstanding_qty', order)
-                // @ts-ignore
-                db.query(query)
+                db.query(query,params)
                     .then((result) => {
                         res.locals.order = result.rows
                         return next()
