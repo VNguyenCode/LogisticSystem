@@ -24,7 +24,6 @@ Edge cases to consider
 #### DB Diagram
 <img src="assets/DBDesign.png">
 
-
 ### Completed
 **Init_catalog** - will initially populate **(product-info)** to the `catalog table` with the initial quantity of 0 for each product type
 
@@ -42,6 +41,8 @@ Edge cases to consider
 
   4. We invoke ShipAPI as many times as we need - continously updating the `outstanding qty` field of our orders table 
 
+  **Connected to DB** Both of the routes mentioned above have a fully functional PostgresSQL DB hosted on ElephantSQL 
+
 ### Not Completed
 **Init_catalog** - I did not have time to finish coding this out, but have included my pseudo code as to how I might have approached it with more time 
 
@@ -53,3 +54,18 @@ Edge cases to consider
 2. Because I'm iterating through 1 quantity of each product during **process_order** at a time and making multiple requests to the DB, this could lead to a heavy load on the DB and not the most optimal. I took a very brute force solution to the problem 
 
 3. I'm aware that this could be a relevant knapsack algorithm which I could have approached to further optimize the system. Rather than hitting the DB with each iteration, I can decide what products go in my package, how my packages are most optimally split, and then invoke the shipAPI. 
+
+
+### Installation 
+
+1. Hosted my DB on ElephantSQL, you can connect in your terminal using 
+
+```JS
+psql postgres:ekwmfpwq:cnGh7BO3pHq6XaPX_Zh1b5yyUlglaNV3@raja.db.elephantsql.com:5432/ekwmfpwq;
+```
+
+2. The catalog DB has already initially been populated with the data with Qty 0 
+
+3. If you would like to run through the process, please manually add `qty` to the product_id of the catalog. Ideally, **process_restock** would have adding the qty to the catalog table. 
+
+4. Send an order in and you should see the shipments table populate based on the packages that get sent 

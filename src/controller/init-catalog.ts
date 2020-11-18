@@ -1,5 +1,5 @@
 import { DBCatalog } from '../db-models/index';
-import { catalogType, requestType } from '../types/jsonData'
+import {requestType } from '../types/jsonData'
 
 /**
  * Initialize the catalog table with JSON data of product_info 

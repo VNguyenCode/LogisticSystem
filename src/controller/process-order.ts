@@ -92,7 +92,7 @@ export async function processOrder(req, res, next) {
         }
     }
     shipApi(shipment, order_id)
-    return next();
+    res.send({ ok: true })
 }
 
 
