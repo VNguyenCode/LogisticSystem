@@ -1,10 +1,10 @@
 import { DBCatalog } from '../db-models/index';
-import { catalogType } from '../types/jsonData'
+import { catalogType, requestType } from '../types/jsonData'
 
 /**
  * Initialize the catalog table with JSON data of product_info 
  */
-export async function initCatalog(req:catalogType, res, next) {
+export async function initCatalog(req:requestType, res, next) {
 
 
     //Assign req.body to a variable called req.body
